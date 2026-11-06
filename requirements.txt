@@ -1,0 +1,12 @@
+# novel-seeker 脚本依赖（Python 3.10+）
+# 安装：python -m pip install -r requirements.txt
+requests>=2.31        # 抓取
+pycryptodome>=3.19    # 长佩正文 AES 解密（fetch_changpei.py）
+Pillow>=10.0          # 封面绘制与图片校验（make_cover.py / validate_epub.py）
+numpy>=1.24           # 封面程序化绘制（make_cover.py）
+PySocks>=1.7          # 可选：经由 socks5 代理抓取（--proxy socks5h://…）
+
+# 说明：
+# - 只用标准库的部分（normalize/check_part/merge_parts/make_diff/pron_scan/apply_pron/
+#   build_book/final_check/textcheck）不需要第三方包，仅 build_book 用标准库 zipfile。
+# - Windows 上若出现彩色 emoji 报错，可设置环境变量 PYTHONIOENCODING=utf-8。
